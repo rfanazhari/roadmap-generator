@@ -1,0 +1,153 @@
+milestones:
+  - title: "Phase 1 — Core HR (Personnel Administration)"
+    description: >
+      Fokus membangun Employee Aggregate Root, value objects, repositori, dan domain services untuk validasi data karyawan.
+    due_on: "2025-09-01"
+    issues:
+      - title: "Implement Employee Aggregate Root"
+        labels: [core-hr, entity]
+        body: "Implementasi entity Employee beserta PersonalInfo, ContactInfo, EmploymentContract, Document, OrganizationUnit, JobPosition."
+      - title: "Buat EmployeeRepository dan basic CRUD"
+        labels: [core-hr, repository]
+        body: "Repositori untuk Employee dengan operasi dasar."
+      - title: "Validasi business rules kontrak & dokumen"
+        labels: [core-hr, domain-service]
+        body: "Layanan domain untuk validasi kontrak dan dokumen karyawan."
+      - title: "Unit tests minimal 80% coverage"
+        labels: [core-hr, test]
+        body: "Pastikan coverage unit test di atas 80%."
+      - title: "Integrasi OrganizationUnit & JobPosition"
+        labels: [core-hr, integration]
+        body: "Relasi OrganizationUnit dan JobPosition dalam Employee."
+  - title: "Phase 2 — Time & Attendance"
+    description: >
+      Fitur kehadiran, shift, cuti, lembur menggunakan domain service dan factory.
+    due_on: "2025-09-22"
+    issues:
+      - title: "Attendance domain entities & factories"
+        labels: [attendance, entity]
+        body: "Implementasi AttendanceRecord, ShiftSchedule, factories dan validasi."
+      - title: "LeaveRequest & saldo cuti logic"
+        labels: [attendance, leave]
+        body: "Implementasi LeaveRequest dan perhitungan saldo cuti."
+      - title: "Kasus overtime & validasi"
+        labels: [attendance, overtime]
+        body: "Implementasi OvertimeRequest, OvertimePolicy, approval logic."
+      - title: "Integrasi awal dengan Payroll"
+        labels: [attendance, payroll]
+        body: "Pastikan output domain attendance bisa digunakan untuk payroll."
+  - title: "Phase 3 — Payroll & Compensation"
+    description: >
+      Fitur perhitungan gaji, tunjangan, potongan, bonus, slip gaji.
+    due_on: "2025-10-15"
+    issues:
+      - title: "SalaryStructure entity & calculation"
+        labels: [payroll, calculation]
+        body: "Implementasi SalaryStructure dan logika perhitungan."
+      - title: "Potongan, tunjangan, validasi domain"
+        labels: [payroll, deduction, benefit]
+        body: "Implementasi deduction dan benefit dengan validasi aturan."
+      - title: "Generate Payslip"
+        labels: [payroll, payslip]
+        body: "Slip gaji bulanan/periodik otomatis."
+      - title: "Unit test perhitungan gaji"
+        labels: [payroll, test]
+        body: "Semua skenario payroll diuji."
+  - title: "Phase 4 — Talent Acquisition"
+    description: >
+      Modul rekrutmen, ATS, onboarding, integrasi Core HR.
+    due_on: "2025-11-01"
+    issues:
+      - title: "Implement JobPosting, Candidate, Application"
+        labels: [talent, entity]
+        body: "Entity rekrutmen dan pipeline ATS."
+      - title: "ATS pipeline, screening, interview, offer"
+        labels: [talent, process]
+        body: "Domain process untuk screening hingga hired."
+      - title: "Onboarding terintegrasi Core HR"
+        labels: [talent, onboarding]
+        body: "Onboarding otomatis update ke module Employee."
+  - title: "Phase 5 — Performance Management"
+    description: >
+      Fitur KPI, OKR, review cycle dan career path.
+    due_on: "2025-11-22"
+    issues:
+      - title: "Definisikan KPI, OKR, ReviewCycle entities"
+        labels: [performance, entity]
+        body: "Entity performance management dan siklus review."
+      - title: "Implementasi Feedback360 dan CareerPath"
+        labels: [performance, feedback]
+        body: "Feedback 360 & penetapan career path."
+      - title: "Tes domain performance"
+        labels: [performance, test]
+        body: "Unit test untuk siklus penilaian."
+  - title: "Phase 6 — Learning & Development"
+    description: >
+      Fitur pelatihan, sertifikasi dan katalog skill.
+    due_on: "2025-12-10"
+    issues:
+      - title: "Entities: TrainingProgram, Certification, Skill"
+        labels: [learning, entity]
+        body: "Implementasi training, certification, dan skill catalog."
+      - title: "Integrasi modul Performance"
+        labels: [learning, integration]
+        body: "Pastikan pelatihan mempengaruhi performance review."
+  - title: "Phase 7 — ESS & MSS"
+    description: >
+      Fitur self-service karyawan & manajer, workflow approval.
+    due_on: "2026-01-05"
+    issues:
+      - title: "ESS: Update data, pengajuan cuti/lembur"
+        labels: [ess, feature]
+        body: "Self-service update data dan pengajuan cuti/lembur/reimbursement."
+      - title: "Akses slip gaji, dokumen, schedule"
+        labels: [ess, access]
+        body: "Implementasi akses dokumen, schedule."
+      - title: "MSS: Approval workflow"
+        labels: [mss, approval]
+        body: "Persetujuan permintaan karyawan oleh manajer."
+  - title: "Phase 8 — Analytics & Reporting"
+    description: >
+      Output dan agregat laporan HR serta dashboard eksekutif.
+    due_on: "2026-01-20"
+    issues:
+      - title: "Domain outputs untuk laporan HR, dashboard"
+        labels: [analytics, report]
+        body: "Logika generate HR report dan metrik dashboard eksekutif."
+      - title: "Integrasi modul analytics"
+        labels: [analytics, integration]
+        body: "System siap hook ke predictive analytics."
+  - title: "Cross-cutting (Incremental)"
+    description: >
+      Layer aplikasi (use cases), API endpoints, dan migrasi persistent.
+    due_on: "2025-12-31"
+    issues:
+      - title: "Application layer stabilization"
+        labels: [cross-cutting, app-layer]
+        body: "Stabilisasi dan validasi application layer untuk integrasi publik."
+      - title: "REST/GraphQL endpoints"
+        labels: [cross-cutting, api]
+        body: "Expose API endpoint dan dokumentasinya."
+      - title: "Database migration flow"
+        labels: [cross-cutting, db]
+        body: "Mapping/migrasi persistence untuk setiap modul."
+
+projects:
+  - name: "HRIS Backend Roadmap"
+    body: "Project board untuk pelacakan milestone dan pengembangan HRIS backend, termasuk Core HR, Attendance, Payroll, Talent Acquisition, dst."
+    columns:
+      - name: "Todo"
+      - name: "In Progress"
+      - name: "Review"
+      - name: "Done"
+    linked_milestones:
+      - "Phase 1 — Core HR (Personnel Administration)"
+      - "Phase 2 — Time & Attendance"
+      - "Phase 3 — Payroll & Compensation"
+      - "Phase 4 — Talent Acquisition"
+      - "Phase 5 — Performance Management"
+      - "Phase 6 — Learning & Development"
+      - "Phase 7 — ESS & MSS"
+      - "Phase 8 — Analytics & Reporting"
+      - "Cross-cutting (Incremental)"
+
