@@ -84,4 +84,4 @@ See the full example in `cmd/milestone.yaml`. The `due_on` field must use the `Y
 - Be mindful of GitHub API rate limits when creating a large number of issues.
 
 ## License
-Not specified yet. Add a license that fits your project needs.
+:(
